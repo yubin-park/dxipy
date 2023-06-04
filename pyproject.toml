@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "dxipy"
+name = "dxitemspy"
 dynamic = ["version"]
 description = ''
 readme = "README.md"
@@ -27,12 +27,15 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Documentation = "https://github.com/unknown/dxipy#readme"
-Issues = "https://github.com/unknown/dxipy/issues"
-Source = "https://github.com/unknown/dxipy"
+Documentation = "https://github.com/yubin-park/dxitemspy#readme"
+Issues = "https://github.com/yubin-park/dxitemspy/issues"
+Source = "https://github.com/yubin-park/dxitemspy"
 
 [tool.hatch.version]
-path = "src/dxipy/__about__.py"
+path = "src/dxitemspy/__about__.py"
+
+[tool.hatch.envs.static]
+dev-mode = false
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -62,7 +65,7 @@ dependencies = [
   "ruff>=0.0.243",
 ]
 [tool.hatch.envs.lint.scripts]
-typing = "mypy --install-types --non-interactive {args:src/dxipy tests}"
+typing = "mypy --install-types --non-interactive {args:src/dxitemspy tests}"
 style = [
   "ruff {args:.}",
   "black --check --diff {args:.}",
@@ -128,7 +131,7 @@ unfixable = [
 ]
 
 [tool.ruff.isort]
-known-first-party = ["dxipy"]
+known-first-party = ["dxitemspy"]
 
 [tool.ruff.flake8-tidy-imports]
 ban-relative-imports = "all"
@@ -138,16 +141,16 @@ ban-relative-imports = "all"
 "tests/**/*" = ["PLR2004", "S101", "TID252"]
 
 [tool.coverage.run]
-source_pkgs = ["dxipy", "tests"]
+source_pkgs = ["dxitemspy", "tests"]
 branch = true
 parallel = true
 omit = [
-  "src/dxipy/__about__.py",
+  "src/dxitemspy/__about__.py",
 ]
 
 [tool.coverage.paths]
-dxipy = ["src/dxipy", "*/dxipy/src/dxipy"]
-tests = ["tests", "*/dxipy/tests"]
+dxitemspy = ["src/dxitemspy", "*/dxitemspy/src/dxitemspy"]
+tests = ["tests", "*/dxitemspy/tests"]
 
 [tool.coverage.report]
 exclude_lines = [
@@ -155,3 +158,22 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[tool.hatch.build]
+include = [
+  "*.py",
+ "*.json"
+]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/docs",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dxitemspy"]
+
+
+
+
