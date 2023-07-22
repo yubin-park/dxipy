@@ -6,8 +6,8 @@ class DXIEngine:
 
     def __init__(self):
 
-        fn_mapping = "src/dxitemspy/dxi_mapping.json"
-        fn_metadata = "src/dxitemspy/dxi_metadata.json"
+        fn_mapping = "dxitemspy/dxi_mapping.json"
+        fn_metadata = "dxitemspy/dxi_metadata.json"
         self.dxi_mapping = {}
         self.dxi_metadata = {}
         with open(fn_mapping, "r") as fp:
