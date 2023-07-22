@@ -11,7 +11,7 @@ class DXIEngine:
         fn_mapping = rscfn(__name__, 'dxi_mapping.json')
         with open(fn_mapping, "r") as fp:
             self.dxi_mapping = json.load(fp)   
-        fn_metadata = rscfn(__name__, 'dxi_mapping.json')
+        fn_metadata = rscfn(__name__, 'dxi_metadata.json')
         with open(fn_metadata, "r") as fp:
             self.dxi_metadata = json.load(fp)   
 
