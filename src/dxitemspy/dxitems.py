@@ -1,19 +1,19 @@
 import json
 import csv
 import re
-
+from pkg_resources import resource_filename as rscfn
 class DXIEngine:
 
     def __init__(self):
 
-        fn_mapping = "dxitemspy/dxi_mapping.json"
-        fn_metadata = "dxitemspy/dxi_metadata.json"
         self.dxi_mapping = {}
         self.dxi_metadata = {}
+        fn_mapping = rscfn(__name__, 'dxi_mapping.json')
         with open(fn_mapping, "r") as fp:
-            self.dxi_mapping = json.load(fp)
+            self.dxi_mapping = json.load(fp)   
+        fn_metadata = rscfn(__name__, 'dxi_mapping.json')
         with open(fn_metadata, "r") as fp:
-            self.dxi_metadata = json.load(fp)
+            self.dxi_metadata = json.load(fp)   
 
     def get_dxi(self, dx_lst):
 
